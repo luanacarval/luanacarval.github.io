@@ -7,6 +7,7 @@
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const shuffle = a => { a = a.slice(); for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
+  const pick = (a, d) => (a && a.length ? a[Math.floor(Math.random() * a.length)] : d);
   const wa = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
 
   let first = true;
@@ -25,7 +26,7 @@
       <p class="eyebrow">${esc(Q.code)}</p>
       <h1>${Q.titleHtml}</h1>
       <p>${esc(Q.intro)}</p>
-      <div class="chips"><span>${Q.questions.length} perguntas</span><span>1 minuto</span><span>Resultado na hora</span></div>
+      <div class="chips">${(Q.chips || [Q.questions.length + " perguntas", "1 minuto", "Resultado na hora"]).map(c => `<span>${esc(c)}</span>`).join("")}</div>
       <button class="btn" id="start">Começar o desafio →</button>
       <p class="by">por Luana Carvalho · Recursos Humanos</p></div>`);
     document.getElementById("start").onclick = start;
@@ -34,7 +35,7 @@
   function start() {
     i = 0; score = 0;
     order = Q.questions.map(q => {
-      const opts = q.options.map((t, k) => ({ t, right: k === q.answer }));
+      const opts = q.options.map((t, k) => ({ t, right: k === q.answer, trap: k === q.trap }));
       return { ...q, opts: q.trueFalse ? opts : shuffle(opts) };
     });
     question();
@@ -62,7 +63,7 @@
       else b.classList.add("dim");
     });
     const last = i === order.length - 1;
-    document.getElementById("after").innerHTML = `<div class="fb ${right ? "good" : "bad"}"><strong>${right ? "Isso mesmo! ✓" : "Quase! A resposta certa está em verde."}</strong>${esc(q.why)}</div>
+    document.getElementById("after").innerHTML = `<div class="fb ${right ? "good" : "bad"}"><strong>${esc(right ? pick(Q.rightLines, "Isso mesmo! ✓") : (q.opts[k].trap && q.trapLine) || pick(Q.wrongLines, "Quase! A resposta certa está em verde."))}</strong>${esc(q.why)}</div>
       <button class="btn next" id="next">${last ? "Ver meu resultado" : "Próxima pergunta"} →</button>`;
     const nx = document.getElementById("next");
     nx.onclick = () => { i++; last ? result() : question(); };

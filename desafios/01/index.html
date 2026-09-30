@@ -7,7 +7,7 @@
 <meta name="description" content="5 situações do dia a dia de uma empresa. Escolha o que você faria e descubra o seu resultado. Um desafio de Gestão de Pessoas por Luana Carvalho · Recursos Humanos.">
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <meta property="og:title" content="Desafio RH #01 · Você saberia decidir?">
-<meta property="og:description" content="5 situações do dia a dia de uma empresa. Quantas você acerta?">
+<meta property="og:description" content="5 situações do dia a dia de uma empresa, todas com pegadinha. Quantas você acerta? 😏">
 <meta property="og:image" content="https://luanacarval.github.io/assets/luana-hero.jpg">
 <meta property="og:url" content="https://luanacarval.github.io/desafios/01/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,58 +38,71 @@
 window.QUIZ = {
   code: "Desafio RH #01",
   titleHtml: "Você saberia <em>decidir?</em>",
-  intro: "5 situações do dia a dia de uma empresa. Escolha o que você faria e descubra o seu resultado no final.",
+  intro: "Dessa vez eu caprichei nas pegadinhas. 😏 São 5 situações do dia a dia de uma empresa, e todas as alternativas parecem certas. Quantas você acerta?",
+  chips: ["5 perguntas", "Nível: pegadinha 😏", "Resultado na hora"],
+  rightLines: ["Isso mesmo! ✓", "Acertou! Tá craque. 👏", "Mandou bem! ✓", "Na mosca! 🎯", "Essa não te pegou! 😎"],
+  wrongLines: ["Quase! A certa está em verde.", "Ih, essa pegou muita gente! 😅", "Não foi dessa vez! A certa está em verde.", "Errou, mas agora não esquece mais. 😉"],
   questions: [
     {
-      text: "Um funcionário começa a apresentar atrasos frequentes. Antes de aplicar uma medida disciplinar, qual é a atitude mais adequada do líder?",
+      text: "Segunda-feira, 8h08. O João bate o ponto 8 minutos atrasado e depois cumpre o resto da jornada normalmente. Pela regra geral da CLT, quanto disso conta como atraso?",
       options: [
-        "Descontar os atrasos e não conversar",
-        "Conversar com o funcionário e entender o que está acontecendo",
-        "Aplicar uma advertência imediatamente",
-        "Esperar vários meses para ver se melhora"
-      ],
-      answer: 1,
-      why: "Atrasos frequentes costumam ter uma causa (saúde, transporte, família). Conversar primeiro permite entender e combinar um caminho antes de qualquer medida."
-    },
-    {
-      text: "Durante uma entrevista de emprego, o recrutador quer avaliar se a pessoa conseguirá cumprir a jornada prevista. Qual pergunta é mais adequada?",
-      options: [
-        "Seu cônjuge trabalha ou fica em casa?",
-        "Você pretende ter filhos nos próximos anos?",
-        "Você consegue cumprir a jornada informada para esta vaga?",
-        "Com quem seus filhos ficarão enquanto você trabalha?"
+        "Nada: até 10 minutos por dia são tolerados",
+        "Só 3 minutos, o que passou da tolerância de 5",
+        "Os 8 minutos inteiros",
+        "Só conta se acontecer 3 vezes no mês"
       ],
       answer: 2,
-      why: "Perguntas sobre filhos, cônjuge ou planos de família não avaliam competência e podem ser discriminatórias. Pergunte sobre o que a vaga exige."
+      trap: 1,
+      trapLine: "Caiu na pegadinha! 😏 Esse é o erro mais comum.",
+      why: "A tolerância é de até 5 minutos por marcação (com máximo de 10 no dia). Passou disso, conta o tempo todo, não só o que excedeu (CLT, art. 58, §1º, e Súmula 366 do TST). Então, João: foram os 8 minutos. ⏰"
     },
     {
-      text: "Dar feedback ao funcionário apenas quando acontece um problema é uma boa prática de gestão de pessoas.",
+      text: "A vaga exige viagens frequentes e o recrutador quer saber se a candidata dá conta. Qual pergunta ele deve fazer?",
+      options: [
+        "“Você tem filhos pequenos? Pergunto só para organizar a escala.”",
+        "“A vaga exige cerca de 10 dias de viagem por mês. Você tem essa disponibilidade?”",
+        "“Seu cônjuge se incomodaria com as viagens?”",
+        "“Tem alguém em casa que depende de você?”"
+      ],
+      answer: 1,
+      trap: 0,
+      trapLine: "Caiu na pegadinha! 😏 A boa intenção não salva a pergunta.",
+      why: "Pergunte sobre o que a vaga exige, nunca sobre filhos, cônjuge ou família, mesmo com a melhor das intenções. Além de não avaliar competência, esse tipo de pergunta pode ser discriminatório (Lei 9.029/95)."
+    },
+    {
+      text: "Verdadeiro ou falso: se o funcionário se recusar a assinar a advertência, pronto, ela perdeu a validade.",
       options: ["Verdadeiro", "Falso"],
       answer: 1,
       trueFalse: true,
-      why: "Feedback funciona melhor quando é frequente. Reconhecer o que vai bem também orienta e motiva a equipe."
+      trap: 0,
+      trapLine: "Caiu na pegadinha! 😏 Não é bem assim.",
+      why: "A assinatura só mostra que ele foi comunicado, não que concorda. Se ele se recusar, é só registrar com a assinatura de duas testemunhas, e a advertência continua valendo. ✍️"
     },
     {
-      text: "Um líder percebe que dois funcionários estão em conflito e isso já começa a afetar o trabalho da equipe. Qual é a postura mais adequada?",
+      text: "A Ana e o Pedro não se bicam, e o clima já está pesando na equipe toda. 😬 Qual é o primeiro passo do líder?",
       options: [
-        "Transferir um dos funcionários imediatamente",
-        "Ouvir os envolvidos e conduzir uma conversa objetiva sobre a situação",
-        "Escolher quem está certo e comunicar a decisão à equipe",
-        "Ignorar até que eles resolvam sozinhos"
+        "Reunir os dois na hora para resolverem frente a frente",
+        "Ouvir cada um separadamente antes de qualquer conversa conjunta",
+        "Definir regras de convivência e comunicar a equipe toda",
+        "Pedir a opinião da equipe para entender quem tem razão"
       ],
       answer: 1,
-      why: "Ouvir os dois lados e conduzir uma conversa objetiva trata a causa do conflito, sem tomar partido e sem deixar o problema crescer."
+      trap: 0,
+      trapLine: "Caiu na pegadinha! 😏 Parece a mais corajosa, né?",
+      why: "Colocar os dois frente a frente cedo demais costuma virar discussão. Ouvindo cada um em particular, você entende a causa real e prepara uma conversa a três que resolve de verdade."
     },
     {
-      text: "Uma empresa percebe que está perdendo bons funcionários e quer entender o motivo. Qual iniciativa pode gerar informações diretamente dos profissionais que estão saindo?",
+      text: "Você quer descobrir o que faria seus melhores funcionários pedirem as contas… antes que eles peçam. Qual iniciativa faz isso?",
       options: [
-        "Pesquisa de satisfação dos clientes",
         "Entrevista de desligamento",
-        "Controle de ponto",
-        "Avaliação de desempenho anual"
+        "Entrevista de permanência",
+        "Avaliação de desempenho",
+        "Pesquisa de satisfação dos clientes"
       ],
       answer: 1,
-      why: "A entrevista de desligamento ouve quem está saindo e revela motivos que muitas vezes não aparecem no dia a dia."
+      trap: 0,
+      trapLine: "Caiu na pegadinha! 😏 Essa só ouve quem já está de saída.",
+      why: "A entrevista de desligamento chega tarde: a pessoa já decidiu sair. A entrevista de permanência conversa com quem fica (“o que te mantém aqui? o que te faria ir embora?”) e ainda dá tempo de agir. 💡"
     }
   ],
   results: [
