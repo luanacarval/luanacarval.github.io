@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luana Carvalho · Recursos Humanos</title>
+<meta name="description" content="Gestora de RH e consultoria para pequenas e médias empresas. Kits de RH personalizados, PDI e padrão de atendimento. Online para todas as cidades, presencial em Parnaíba e Teresina.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<meta property="og:title" content="Luana Carvalho · Recursos Humanos">
+<meta property="og:description" content="Sua parceira de RH para pequenas e médias empresas.">
+<meta property="og:image" content="assets/luana-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FAF5EC;
+    --sand:#F1E4CC;
+    --brick:#873321;
+    --brick-2:#9A4331;
+    --gold:#CB8A2E;
+    --gold-soft:#E0C699;
+    --ink:#2B1D16;
+    --white:#fff;
+    --line:#E7D9C2;
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Jost",system-ui,sans-serif;
+    --wrap:1140px;
+    --radius:20px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+  section{position:relative;padding:96px 0}
+  .eyebrow{font-weight:600;font-size:.8rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+  h1,h2{font-family:var(--serif);font-weight:700;color:var(--brick);line-height:1.08}
+  h1 em,h2 em{font-style:italic;font-weight:500;color:var(--gold)}
+  h2{font-size:clamp(2rem,4.2vw,3rem)}
+  h3{font-weight:600;color:var(--brick);font-size:1.2rem;line-height:1.35}
+  .btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;gap:8px;font-weight:600;font-size:1rem;border-radius:999px;padding:16px 30px;transition:transform .2s,background .2s,box-shadow .2s;line-height:1.35}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(135,51,33,.22)}
+  .btn-brick{background:var(--brick);color:var(--cream)}
+  .btn-brick:hover{background:var(--brick-2)}
+  .btn-gold{background:var(--gold);color:var(--white)}
+  .link-arrow{font-weight:500;color:var(--brick);display:inline-flex;gap:6px;align-items:center}
+  .link-arrow:hover{text-decoration:underline;text-underline-offset:4px}
+
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(250,245,236,.92);backdrop-filter:blur(8px);transition:box-shadow .2s}
+  header.scrolled{box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:44px;height:44px}
+  .brand-name{font-family:var(--serif);font-weight:700;color:var(--brick);font-size:1.2rem;letter-spacing:.06em}
+  .brand-sub{font-weight:500;color:var(--gold);font-size:.72rem;letter-spacing:.16em;margin-left:6px}
+  .menu{display:flex;gap:34px;list-style:none}
+  .menu a{font-weight:500;color:var(--brick);font-size:.98rem;position:relative}
+  .menu a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--gold);transition:width .25s}
+  .menu a:hover::after{width:100%}
+  .burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--brick)}
+  .burger span{display:block;height:2px;background:currentColor;margin:6px 10px;transition:.25s}
+
+  /* Hero */
+  .hero{padding:40px 0 80px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.1rem);margin-bottom:28px}
+  .hero p.lead{font-size:1.15rem;max-width:30em;margin-bottom:36px}
+  .hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;margin-bottom:34px}
+  .hero-meta{font-size:.92rem;color:var(--ink)}
+  .hero-meta b{color:var(--brick);font-weight:600}
+  .hero-meta .dot{color:var(--gold);margin:0 10px}
+  .hero-visual{position:relative;display:flex;justify-content:center}
+  .hero-visual::before{content:"";position:absolute;width:125%;aspect-ratio:1;border-radius:50%;background:var(--sand);top:50%;left:55%;transform:translate(-50%,-52%);z-index:0}
+  .arch{position:relative;z-index:1;width:min(100%,420px);aspect-ratio:3/4;border-radius:999px 999px 18px 18px;border:10px solid var(--white);overflow:hidden;box-shadow:0 24px 48px rgba(95,55,20,.16);background:var(--white)}
+  .arch img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+
+  /* Pain points */
+  .pain{background:var(--brick);color:var(--cream);overflow:hidden}
+  .pain::after{content:"";position:absolute;width:300px;height:300px;border:2px solid var(--gold);border-radius:50%;top:-100px;right:4%;pointer-events:none}
+  .pain .wrap{position:relative;z-index:1}
+  .pain .eyebrow{color:var(--gold-soft)}
+  .pain h2{color:var(--cream);max-width:18em}
+  .pain h2 em{color:var(--gold-soft)}
+  .cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:52px 0}
+  .pcard{background:var(--cream);color:var(--ink);border-radius:var(--radius);padding:34px 26px}
+  .pcard .num{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:1.9rem;margin-bottom:14px;font-variant-numeric:oldstyle-nums}
+  .pcard p{font-size:1rem}
+  .pain .closing{font-family:var(--serif);font-weight:500;font-size:clamp(1.4rem,2.6vw,1.95rem);color:var(--cream)}
+  .pain .closing em{color:var(--gold-soft)}
+
+  /* About */
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center}
+  .about-photo{border-radius:var(--radius);overflow:hidden;aspect-ratio:3/4;box-shadow:0 20px 40px rgba(60,30,15,.14)}
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .about h2{margin-bottom:28px}
+  .about p{margin-bottom:16px;font-size:1.05rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+  .stat{background:var(--white);border-radius:var(--radius);padding:24px 18px}
+  .stat strong{display:block;font-family:var(--serif);font-weight:700;color:var(--brick);font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.1;margin-bottom:8px}
+  .stat span{font-size:.9rem;line-height:1.4;display:block}
+
+  /* Services */
+  .services{background:var(--white)}
+  .center{text-align:center}
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+  .svc{background:var(--cream);border-radius:var(--radius);padding:40px 30px;display:flex;flex-direction:column}
+  .svc .eyebrow{font-size:.74rem;margin-bottom:12px}
+  .svc h3.title{font-family:var(--serif);font-weight:700;font-size:1.8rem;line-height:1.12;margin-bottom:18px}
+  .svc > p{margin-bottom:26px}
+  .svc .sub h4{color:var(--brick);font-weight:600;font-size:1.05rem}
+  .svc .sub p{font-size:.95rem;margin-bottom:18px}
+  .checks{list-style:none;display:grid;gap:14px}
+  .checks li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem;line-height:1.5}
+  .checks li::before{content:"";flex:0 0 22px;height:22px;border-radius:50%;background:var(--brick) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/13px no-repeat;margin-top:1px}
+  .svc .btn{margin-top:auto;align-self:flex-start}
+  .svc .spacer{flex:1;min-height:40px}
+  .svc.featured{background:var(--brick);color:var(--cream)}
+  .svc.featured .eyebrow{color:var(--gold-soft)}
+  .svc.featured h3.title{color:var(--cream)}
+  .svc.featured .checks li::before{background-color:var(--gold)}
+
+  /* How it works */
+  .how{background:var(--sand)}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px}
+  .step{border-top:2px solid var(--brick);padding-top:34px}
+  .step .n{font-family:var(--serif);font-weight:700;color:var(--gold);font-size:2.8rem;line-height:1;margin-bottom:18px}
+  .step h3{margin-bottom:12px}
+
+  /* Why */
+  .why-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+  .why-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .wcard{background:var(--white);border-radius:var(--radius);padding:30px 26px}
+  .wcard h3{margin-bottom:10px}
+
+  /* FAQ */
+  .faq{background:var(--white)}
+  .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:start}
+  .faq details{border-bottom:1px solid var(--line);padding:22px 0}
+  .faq details:first-child{padding-top:0}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-weight:600;color:var(--brick);font-size:1.18rem}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--sans);font-weight:500;color:var(--gold);font-size:1.5rem;line-height:1;transition:transform .25s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{margin-top:12px;max-width:40em}
+
+  /* CTA / Footer */
+  .cta{position:relative;background:var(--brick);color:var(--cream);text-align:center;overflow:hidden;padding:100px 0 48px}
+  .cta::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:var(--brick-2);top:-150px;right:-70px}
+  .cta::after{content:"";position:absolute;width:460px;height:460px;border-radius:50%;border:2px solid var(--gold);left:-250px;top:55%}
+  .cta .wrap{position:relative;z-index:1}
+  .cta-logo{width:76px;height:76px;border-radius:50%;background:var(--cream);padding:8px;margin:0 auto 24px}
+  .cta h2{color:var(--cream);margin-bottom:16px}
+  .cta h2 em{color:var(--gold-soft)}
+  .cta p.sub{font-size:1.15rem;margin-bottom:34px}
+  .contacts{display:flex;flex-wrap:wrap;justify-content:center;gap:28px 64px;margin:64px 0 56px}
+  .contacts div{display:flex;flex-direction:column;gap:6px}
+  .contacts small{font-weight:600;letter-spacing:.24em;font-size:.72rem;color:var(--gold-soft);text-transform:uppercase}
+  .contacts a:hover{text-decoration:underline;text-underline-offset:4px}
+  .copy{font-size:.85rem;color:var(--gold-soft)}
+
+  .wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px rgba(0,0,0,.2);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.07)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+  /* Responsive */
+  @media (max-width:1000px){
+    .cards4{grid-template-columns:repeat(2,1fr)}
+    .svc-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
+    .brand-sub{display:none}
+  }
+  @media (max-width:860px){
+    section{padding:72px 0}
+    .burger{display:block}
+    .menu{position:absolute;top:84px;left:0;right:0;flex-direction:column;gap:0;background:var(--cream);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
+    .menu.open{max-height:360px}
+    .menu li a{display:block;padding:16px 24px}
+    .menu a::after{display:none}
+    .hero-grid,.about-grid,.why-grid,.faq-grid{grid-template-columns:1fr}
+    .hero-visual{order:-1;margin-top:10px}
+    .arch{width:min(78%,340px)}
+    .about-photo{max-width:420px}
+    .steps{grid-template-columns:1fr;gap:24px}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .cards4,.why-cards,.stats{grid-template-columns:1fr}
+    .hero-meta .dot{display:none}
+    .hero-meta span{display:block}
+    .btn{width:100%}
+    .pain::after{width:200px;height:200px;top:-120px;right:-60px}
+    .cta::after{opacity:.5}
+    .svc .btn{align-self:stretch}
+    .brand-name{font-size:1.05rem}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <nav class="wrap nav">
+    <a href="#top" class="brand" aria-label="Luana Carvalho Recursos Humanos — início">
+      <img src="assets/logo.png" alt="">
+      <span><span class="brand-name">LUANA CARVALHO</span><span class="brand-sub">RECURSOS HUMANOS</span></span>
+    </a>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#duvidas">Dúvidas</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Gestora de RH · Consultoria</p>
+        <h1>Sua parceira de RH para pequenas e <em>médias empresas</em></h1>
+        <p class="lead">Eu organizo o RH da sua empresa e ajudo a desenvolver as pessoas que fazem ela crescer, com materiais personalizados com a sua marca e acompanhamento de perto.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-brick" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20RH." target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
+          <a class="link-arrow" href="#servicos">Conheça os serviços →</a>
+        </div>
+        <p class="hero-meta"><span><b>Online</b> para todas as cidades</span><span class="dot">·</span><span>Presencial em <b>Parnaíba</b></span><span class="dot">·</span><span><b>Teresina</b> com agendamento</span></p>
+      </div>
+      <div class="hero-visual">
+        <div class="arch"><img src="assets/luana-hero.jpg" alt="Luana Carvalho, gestora de RH" width="900" height="1200"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section class="pain">
+    <div class="wrap">
+      <p class="eyebrow">Você se identifica?</p>
+      <h2>Talvez a sua empresa esteja <em>passando por isso</em></h2>
+      <div class="cards4">
+        <div class="pcard reveal"><div class="num">01</div><p>Contrata no improviso e se arrepende poucos meses depois.</p></div>
+        <div class="pcard reveal"><div class="num">02</div><p>O funcionário novo chega e ninguém sabe o que ensinar para ele.</p></div>
+        <div class="pcard reveal"><div class="num">03</div><p>As regras existem só “na cabeça” do dono e ninguém cumpre.</p></div>
+        <div class="pcard reveal"><div class="num">04</div><p>O atendimento ao cliente muda conforme quem está atendendo.</p></div>
+      </div>
+      <p class="closing">Isso não é falta de sorte. É falta de processo. <em>E eu te ajudo a resolver.</em></p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal"><img src="assets/luana-sobre.jpg" alt="Retrato de Luana Carvalho" width="800" height="1200" loading="lazy"></div>
+      <div>
+        <p class="eyebrow">Sobre mim</p>
+        <h2>Prazer, eu sou a <em>Luana</em></h2>
+        <p>Sou gestora de RH, tecnóloga em Gestão de Recursos Humanos, com 4 anos de atuação em RH e quase 10 anos em gestão administrativa. Já implantei um setor de RH do zero, conduzi processos seletivos de alto volume e fiz consultorias de processos e padrão de atendimento em escritório de advocacia e hospital.</p>
+        <p>Vi de perto como pequenas e médias empresas crescem sem um RH estruturado, e quanto isso custa. Meu papel é ser a sua parceira de RH: entender o seu negócio, preparar tudo com a sua cara e te ensinar a usar no dia a dia.</p>
+        <div class="stats">
+          <div class="stat reveal"><strong>4 anos</strong><span>de atuação em RH</span></div>
+          <div class="stat reveal"><strong>quase 10</strong><span>anos em gestão administrativa</span></div>
+          <div class="stat reveal"><strong>do zero</strong><span>implantação de setor de RH</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="servicos">
+    <div class="wrap">
+      <div class="center">
+        <p class="eyebrow">Serviços</p>
+        <h2>Como eu posso <em>te ajudar</em></h2>
+      </div>
+      <div class="svc-grid">
+        <article class="svc reveal">
+          <p class="eyebrow">Organize seu RH</p>
+          <h3 class="title">Kits de RH personalizados</h3>
+          <p>Três kits completos, com a identidade visual da sua empresa e treinamento de uso.</p>
+          <div class="sub"><h4>Recrutamento e Seleção</h4><p>Da requisição da vaga ao retorno ao candidato.</p></div>
+          <div class="sub"><h4>Admissão e Integração</h4><p>Do primeiro documento ao primeiro dia do colaborador.</p></div>
+          <div class="sub"><h4>Cultura e Conduta</h4><p>Código de conduta, políticas internas e valores.</p></div>
+          <div class="spacer"></div>
+          <a class="btn btn-brick" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Quero%20organizar%20o%20RH%20da%20minha%20empresa%20(Kits%20de%20RH)." target="_blank" rel="noopener">Quero organizar meu RH</a>
+        </article>
+        <article class="svc featured reveal">
+          <p class="eyebrow">Desenvolva sua equipe</p>
+          <h3 class="title">Desenvolve</h3>
+          <p>Um Plano de Desenvolvimento Individual (PDI) para cada colaborador, com acompanhamento de perto.</p>
+          <ul class="checks">
+            <li>Conversa individual com cada colaborador</li>
+            <li>Mapeamento de competências</li>
+            <li>Plano com metas, ações e prazos</li>
+            <li>Acompanhamento por 3 meses</li>
+            <li>Relatório de evolução para o gestor</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="btn btn-gold" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Quero%20desenvolver%20minha%20equipe%20(Desenvolve%20%2F%20PDI)." target="_blank" rel="noopener">Quero desenvolver minha equipe</a>
+        </article>
+        <article class="svc reveal">
+          <p class="eyebrow">Encante seu cliente</p>
+          <h3 class="title">Padrão de Atendimento</h3>
+          <p>Treino a sua equipe para que todo cliente seja bem atendido, não importa quem esteja no balcão ou no WhatsApp.</p>
+          <ul class="checks">
+            <li>Diagnóstico do atendimento atual</li>
+            <li>Criação do padrão e dos protocolos</li>
+            <li>Materiais de orientação para a equipe</li>
+            <li>Treinamento e acompanhamento dos colaboradores</li>
+          </ul>
+          <div class="spacer"></div>
+          <a class="btn btn-brick" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Quero%20treinar%20minha%20equipe%20(Padr%C3%A3o%20de%20Atendimento)." target="_blank" rel="noopener">Quero treinar minha equipe</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="como-funciona">
+    <div class="wrap">
+      <p class="eyebrow">Como funciona</p>
+      <h2>Do diagnóstico <em>à prática</em></h2>
+      <div class="steps">
+        <div class="step reveal"><div class="n">1</div><h3>Reunião de diagnóstico</h3><p>Entendo a realidade da sua empresa e o que ela precisa, online ou presencial.</p></div>
+        <div class="step reveal"><div class="n">2</div><h3>Material personalizado</h3><p>Preparo tudo sob medida, com a logo e a identidade da sua empresa.</p></div>
+        <div class="step reveal"><div class="n">3</div><h3>Treinamento e acompanhamento</h3><p>Te ensino e treino a equipe para aplicar cada material no dia a dia.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why">
+    <div class="wrap why-grid">
+      <div>
+        <p class="eyebrow">Por que trabalhar comigo</p>
+        <h2>RH sob medida, <em>sem complicação</em></h2>
+      </div>
+      <div class="why-cards">
+        <div class="wcard reveal"><h3>Feito para a sua empresa</h3><p>Nada de modelo genérico baixado da internet.</p></div>
+        <div class="wcard reveal"><h3>Com a sua marca</h3><p>Todo material sai com a identidade visual da empresa.</p></div>
+        <div class="wcard reveal"><h3>Você não fica sozinho</h3><p>Eu te ensino e acompanho a aplicação.</p></div>
+        <div class="wcard reveal"><h3>Online, de onde você estiver</h3><p>Presencial em Parnaíba e em Teresina com agendamento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="duvidas">
+    <div class="wrap faq-grid">
+      <div>
+        <p class="eyebrow">Dúvidas</p>
+        <h2>Perguntas <em>frequentes</em></h2>
+      </div>
+      <div>
+        <details open><summary>Preciso ter um setor de RH para contratar?</summary><p>Não. Os serviços foram pensados justamente para empresas que não têm RH estruturado.</p></details>
+        <details open><summary>O material é um modelo pronto?</summary><p>Não. Tudo é adaptado à realidade da sua empresa e sai com a sua marca.</p></details>
+        <details open><summary>Você atende em qual cidade?</summary><p>O atendimento é principalmente online, para empresas de qualquer cidade. Também atendo presencialmente em Parnaíba e em Teresina com agendamento.</p></details>
+        <details open><summary>Quanto tempo leva?</summary><p>Depende do serviço e do tamanho da equipe. O prazo é combinado na reunião de diagnóstico. O Desenvolve tem duração de 3 meses.</p></details>
+        <details open><summary>Como faço para começar?</summary><p>É só me chamar no WhatsApp e agendar a reunião de diagnóstico.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- CTA + FOOTER -->
+<footer class="cta" id="contato">
+  <div class="wrap">
+    <img class="cta-logo" src="assets/logo.png" alt="Logo Luana Carvalho Recursos Humanos" loading="lazy">
+    <h2>Vamos organizar o RH <em>da sua empresa?</em></h2>
+    <p class="sub">Me chama no WhatsApp e vamos marcar uma conversa sem compromisso.</p>
+    <a class="btn btn-gold" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20diagn%C3%B3stico." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <div class="contacts">
+      <div><small>WhatsApp</small><a href="https://wa.me/5586981251547" target="_blank" rel="noopener">(86) 98125-1547</a></div>
+      <div><small>Instagram</small><a href="https://instagram.com/luanacarvalho_rh" target="_blank" rel="noopener">@luanacarvalho_rh</a></div>
+      <div><small>E-mail</small><a href="mailto:luanacarvalrh@gmail.com">luanacarvalrh@gmail.com</a></div>
+      <div><small>Atendimento</small><span>Online · Parnaíba · Teresina</span></div>
+    </div>
+    <p class="copy">© <span id="yr">2026</span> Luana Carvalho Recursos Humanos</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5586981251547" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.29.17-1.42-.07-.12-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.43-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43zm8.02-17.45A11.27 11.27 0 0 0 12.04.75C5.8.75.72 5.83.72 12.08c0 2 .52 3.95 1.52 5.66L.62 23.62l6.01-1.58a11.3 11.3 0 0 0 5.41 1.38h.01c6.25 0 11.33-5.08 11.33-11.33 0-3.03-1.18-5.87-3.31-8.01z"/></svg>
+</a>
+
+<script>
+  const burger=document.querySelector('.burger'),menu=document.getElementById('menu');
+  burger.addEventListener('click',()=>{const o=menu.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+  const hdr=document.querySelector('header');
+  addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>10),{passive:true});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+  } else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+</script>
+</body>
+</html>
