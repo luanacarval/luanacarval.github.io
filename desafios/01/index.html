@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Desafio RH #01 · Você saberia decidir? · Luana Carvalho RH</title>
+<meta name="description" content="5 situações do dia a dia de uma empresa. Escolha o que você faria e descubra o seu resultado. Um desafio de Gestão de Pessoas por Luana Carvalho · Recursos Humanos.">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<meta property="og:title" content="Desafio RH #01 · Você saberia decidir?">
+<meta property="og:description" content="5 situações do dia a dia de uma empresa. Quantas você acerta?">
+<meta property="og:image" content="https://luanacarval.github.io/assets/luana-hero.jpg">
+<meta property="og:url" content="https://luanacarval.github.io/desafios/01/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../desafios.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../" aria-label="Luana Carvalho Recursos Humanos — início">
+      <img src="../../assets/logo.png" alt="">
+      <span><span class="brand-name">LUANA CARVALHO</span><span class="brand-sub">RECURSOS HUMANOS</span></span>
+    </a>
+    <a class="back" href="../">← <span class="long">Todos os </span>desafios</a>
+  </div>
+</header>
+
+<main class="quiz-main">
+  <div class="card" id="quiz">
+    <noscript><p>Para fazer o desafio, ative o JavaScript no seu navegador.</p></noscript>
+  </div>
+</main>
+
+<footer class="foot">© 2026 Luana Carvalho Recursos Humanos · <a href="../../">Conheça os serviços</a></footer>
+
+<script>
+window.QUIZ = {
+  code: "Desafio RH #01",
+  titleHtml: "Você saberia <em>decidir?</em>",
+  intro: "5 situações do dia a dia de uma empresa. Escolha o que você faria e descubra o seu resultado no final.",
+  questions: [
+    {
+      text: "Um funcionário começa a apresentar atrasos frequentes. Antes de aplicar uma medida disciplinar, qual é a atitude mais adequada do líder?",
+      options: [
+        "Descontar os atrasos e não conversar",
+        "Conversar com o funcionário e entender o que está acontecendo",
+        "Aplicar uma advertência imediatamente",
+        "Esperar vários meses para ver se melhora"
+      ],
+      answer: 1,
+      why: "Atrasos frequentes costumam ter uma causa (saúde, transporte, família). Conversar primeiro permite entender e combinar um caminho antes de qualquer medida."
+    },
+    {
+      text: "Durante uma entrevista de emprego, o recrutador quer avaliar se a pessoa conseguirá cumprir a jornada prevista. Qual pergunta é mais adequada?",
+      options: [
+        "Seu cônjuge trabalha ou fica em casa?",
+        "Você pretende ter filhos nos próximos anos?",
+        "Você consegue cumprir a jornada informada para esta vaga?",
+        "Com quem seus filhos ficarão enquanto você trabalha?"
+      ],
+      answer: 2,
+      why: "Perguntas sobre filhos, cônjuge ou planos de família não avaliam competência e podem ser discriminatórias. Pergunte sobre o que a vaga exige."
+    },
+    {
+      text: "Dar feedback ao funcionário apenas quando acontece um problema é uma boa prática de gestão de pessoas.",
+      options: ["Verdadeiro", "Falso"],
+      answer: 1,
+      trueFalse: true,
+      why: "Feedback funciona melhor quando é frequente. Reconhecer o que vai bem também orienta e motiva a equipe."
+    },
+    {
+      text: "Um líder percebe que dois funcionários estão em conflito e isso já começa a afetar o trabalho da equipe. Qual é a postura mais adequada?",
+      options: [
+        "Transferir um dos funcionários imediatamente",
+        "Ouvir os envolvidos e conduzir uma conversa objetiva sobre a situação",
+        "Escolher quem está certo e comunicar a decisão à equipe",
+        "Ignorar até que eles resolvam sozinhos"
+      ],
+      answer: 1,
+      why: "Ouvir os dois lados e conduzir uma conversa objetiva trata a causa do conflito, sem tomar partido e sem deixar o problema crescer."
+    },
+    {
+      text: "Uma empresa percebe que está perdendo bons funcionários e quer entender o motivo. Qual iniciativa pode gerar informações diretamente dos profissionais que estão saindo?",
+      options: [
+        "Pesquisa de satisfação dos clientes",
+        "Entrevista de desligamento",
+        "Controle de ponto",
+        "Avaliação de desempenho anual"
+      ],
+      answer: 1,
+      why: "A entrevista de desligamento ouve quem está saindo e revela motivos que muitas vezes não aparecem no dia a dia."
+    }
+  ],
+  results: [
+    {
+      min: 0, max: 0, special: true, emoji: "🚨",
+      lead: "Parabéns! Você desbloqueou o modo:",
+      title: "“CHAMA O RH” 😂",
+      button: "Tá, Luana. E agora?",
+      whatsapp: "Oi, Luana! Fiz o Desafio RH #01, acertei {score} de {total} e desbloqueei o modo “CHAMA O RH” 😂 Tá, e agora?"
+    },
+    {
+      min: 1, max: 1, emoji: "🚨",
+      title: "Temos um pequeno problema de RH aqui...",
+      bodyHtml: "<p>Calma, ninguém vai receber uma advertência por causa desse resultado. 😂</p><p>Mas talvez esteja na hora de atualizar alguns conhecimentos sobre Gestão de Pessoas.</p><p><b>Quer descobrir onde estão os seus pontos de atenção?</b></p>",
+      button: "Vamos conversar",
+      whatsapp: "Oi, Luana! Fiz o Desafio RH #01 e acertei {score} de {total}. Quero descobrir onde estão os meus pontos de atenção."
+    },
+    {
+      min: 2, max: 3, emoji: "👀",
+      title: "Você sabe... mas às vezes no “eu acho”.",
+      bodyHtml: "<p>Você já tem uma boa noção de Gestão de Pessoas, mas algumas decisões ainda podem estar sendo tomadas no famoso:</p><blockquote>“Na minha empresa sempre foi assim.”</blockquote><p><b>Talvez esteja na hora de trocar o “eu acho” por estratégia.</b></p>",
+      button: "Quero conversar com a Luana",
+      whatsapp: "Oi, Luana! Fiz o Desafio RH #01 e acertei {score} de {total}. Quero trocar o “eu acho” por estratégia. Vamos conversar?"
+    },
+    {
+      min: 4, max: 4, emoji: "👏",
+      title: "Olha só... temos alguém que entende de gente!",
+      bodyHtml: "<p>Você foi bem no desafio. Mas RH não é só acertar perguntas: é saber transformar conhecimento em decisões melhores no dia a dia.</p><p>E aí fica a pergunta:</p><p><b>Será que sua empresa está aproveitando todo esse potencial?</b></p>",
+      button: "Vamos conversar",
+      whatsapp: "Oi, Luana! Fiz o Desafio RH #01 e acertei {score} de {total}. Vamos conversar sobre o RH da minha empresa?"
+    },
+    {
+      min: 5, max: 5, emoji: "🏆",
+      title: "Pode devolver o crachá para o RH. Você passou!",
+      bodyHtml: "<p>Agora quero saber: você acertou porque realmente entende de Gestão de Pessoas ou porque o RH já te traumatizou o suficiente? 😂</p><p><b>Brincadeiras à parte, conhecimento é ótimo. Aplicar isso na rotina da empresa é o verdadeiro desafio.</b></p>",
+      button: "Bora conversar sobre seu RH",
+      whatsapp: "Oi, Luana! Fiz o Desafio RH #01 e gabaritei: {score} de {total}! 🏆 Bora conversar sobre o RH da minha empresa?"
+    }
+  ]
+};
+</script>
+<script src="../quiz.js"></script>
+</body>
+</html>

@@ -57,7 +57,7 @@
   .brand-name{font-family:var(--serif);font-weight:700;color:var(--brick);font-size:1.2rem;letter-spacing:.06em}
   .brand-sub{font-weight:500;color:var(--gold);font-size:.72rem;letter-spacing:.16em;margin-left:6px}
   .menu{display:flex;gap:34px;list-style:none}
-  .menu a{font-weight:500;color:var(--brick);font-size:.98rem;position:relative}
+  .menu a{white-space:nowrap;font-weight:500;color:var(--brick);font-size:.98rem;position:relative}
   .menu a::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:0;background:var(--gold);transition:width .25s}
   .menu a:hover::after{width:100%}
   .burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--brick)}
@@ -135,6 +135,20 @@
   .wcard{background:var(--white);border-radius:var(--radius);padding:30px 26px}
   .wcard h3{margin-bottom:10px}
 
+  /* Desafios */
+  .menu a.nav-hl{color:var(--gold);font-weight:600}
+  .quizband{padding:0 0 96px}
+  .qb{background:var(--brick);color:var(--cream);border-radius:28px;padding:48px 52px;display:grid;grid-template-columns:1.4fr 1fr;gap:32px;align-items:center;position:relative;overflow:hidden}
+  .qb::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;border:2px solid var(--gold);right:-80px;top:-120px}
+  .qb > div{position:relative;z-index:1}
+  .qb .eyebrow{color:var(--gold-soft)}
+  .qb h2{color:var(--cream);margin-bottom:12px}
+  .qb h2 em{color:var(--gold-soft)}
+  .qb p{font-size:1.08rem}
+  .qb-cta{display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:relative;z-index:1}
+  .qb-cta small{color:var(--gold-soft);font-size:.92rem}
+  .qb-cta a.more{color:var(--cream);font-weight:500;text-decoration:underline;text-underline-offset:4px}
+
   /* FAQ */
   .faq{background:var(--white)}
   .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:48px;align-items:start}
@@ -170,10 +184,15 @@
   @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
   /* Responsive */
+  @media (max-width:1180px){
+    .brand-sub{display:none}
+    .menu{gap:26px}
+  }
   @media (max-width:1000px){
     .cards4{grid-template-columns:repeat(2,1fr)}
     .svc-grid{grid-template-columns:1fr;max-width:560px;margin-left:auto;margin-right:auto}
     .brand-sub{display:none}
+    .qb{grid-template-columns:1fr;padding:40px 32px}
   }
   @media (max-width:860px){
     section{padding:72px 0}
@@ -194,6 +213,8 @@
     .hero-meta .dot{display:none}
     .hero-meta span{display:block}
     .btn{width:100%}
+    .qb{padding:34px 22px}
+    .qb-cta{align-items:stretch}
     .pain::after{width:200px;height:200px;top:-120px;right:-60px}
     .cta::after{opacity:.5}
     .svc .btn{align-self:stretch}
@@ -214,6 +235,7 @@
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="desafios/" class="nav-hl">Desafios</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
       <li><a href="#contato">Contato</a></li>
     </ul>
@@ -347,6 +369,23 @@
         <div class="wcard reveal"><h3>Com a sua marca</h3><p>Todo material sai com a identidade visual da empresa.</p></div>
         <div class="wcard reveal"><h3>Você não fica sozinho</h3><p>Eu te ensino e acompanho a aplicação.</p></div>
         <div class="wcard reveal"><h3>Online, de onde você estiver</h3><p>Presencial em Parnaíba e em Teresina com agendamento.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESAFIOS -->
+  <section class="quizband" id="desafios">
+    <div class="wrap">
+      <div class="qb reveal">
+        <div>
+          <p class="eyebrow">Desafio RH #01 · Novo</p>
+          <h2>Você saberia <em>decidir?</em></h2>
+          <p>5 situações do dia a dia de uma empresa. Escolha o que você faria e descubra, em 1 minuto, como anda o seu olhar de RH.</p>
+        </div>
+        <div class="qb-cta">
+          <a class="btn btn-gold" href="desafios/01/">Fazer o desafio →</a>
+          <small>Resultado na hora · <a class="more" href="desafios/">ver todos os desafios</a></small>
+        </div>
       </div>
     </div>
   </section>
