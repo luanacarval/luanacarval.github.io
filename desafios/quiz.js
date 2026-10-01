@@ -8,6 +8,8 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const shuffle = a => { a = a.slice(); for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
   const pick = (a, d) => (a && a.length ? a[Math.floor(Math.random() * a.length)] : d);
+  const slug = Q.slug || "desafio";
+  const track = (what, title) => { try { if (window.goatcounter && goatcounter.count) goatcounter.count({ path: `${slug}/${what}`, title: `${Q.code}: ${title}`, event: true }); } catch (e) {} };
   const wa = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
 
   let first = true;
@@ -33,6 +35,7 @@
   }
 
   function start() {
+    track(i || score ? "refez" : "comecou", i || score ? "refez o desafio" : "começou");
     i = 0; score = 0;
     order = Q.questions.map(q => {
       const opts = q.options.map((t, k) => ({ t, right: k === q.answer, trap: k === q.trap }));
@@ -74,8 +77,9 @@
   function result() {
     const n = order.length;
     const r = Q.results.find(r => score >= r.min && score <= r.max);
+    track(`terminou-${score}-de-${n}`, `terminou com ${score} de ${n}`);
     const msg = r.whatsapp.replace("{score}", score).replace("{total}", n);
-    const tail = `<a class="btn ${r.special ? "gold" : ""}" href="${wa(msg)}" target="_blank" rel="noopener">${esc(r.button)}</a>
+    const tail = `<a class="btn ${r.special ? "gold" : ""}" id="wa" href="${wa(msg)}" target="_blank" rel="noopener">${esc(r.button)}</a>
       <div class="actions"><button class="link" id="again">↺ Refazer o desafio</button><button class="link" id="share">↗ Compartilhar</button></div>
       <p class="toast" id="toast" aria-live="polite"></p>`;
     if (r.special) {
@@ -86,10 +90,12 @@
         <h2>${esc(r.title)}</h2>${r.bodyHtml}${tail}</div>`);
     }
     document.getElementById("again").onclick = start;
+    document.getElementById("wa").addEventListener("click", () => track(`whatsapp-${score}-de-${n}`, `clicou no WhatsApp (${score} de ${n})`));
     document.getElementById("share").onclick = () => share(score, n);
   }
 
   async function share(s, n) {
+    track("compartilhou", "clicou em compartilhar");
     const url = location.href.split("#")[0].split("?")[0];
     const text = `Fiz o ${Q.code} da Luana Carvalho RH e acertei ${s} de ${n}. Você saberia decidir? 👇`;
     const t = document.getElementById("toast");
