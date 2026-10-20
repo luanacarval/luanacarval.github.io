@@ -1,8 +1,10 @@
 /* Desafio RH #02 · Sua empresa está organizada ou sobrevivendo no improviso?
    8 perguntas (2 por área) + um espaço para a pessoa contar o problema.
-   Nada do que a pessoa escreve é salvo no site: o texto só sai daqui se ela enviar pelo WhatsApp. */
+   Ao ver o resultado, o que a pessoa contou (temas, problema, nome e WhatsApp) é enviado por e-mail para a Luana. */
 (function () {
   const WA = "5586981251547";
+  /* Respostas enviadas por e-mail (FormSubmit). Na primeira resposta chega um e-mail de ativação para este endereço. */
+  const MAIL_TO = "luanacarvalrh@gmail.com";
   const CODE = "Desafio RH #02";
   const SLUG = "desafio-02";
   const card = document.getElementById("quiz");
@@ -126,7 +128,7 @@
   const track = (what, title) => { try { if (window.goatcounter && goatcounter.count) goatcounter.count({ path: `${SLUG}/${what}`, title: `${CODE}: ${title}`, event: true }); } catch (e) {} };
 
   let order = [], picks = [], i = 0, started = false;
-  let problem = "", name = "", chosen = [];
+  let problem = "", name = "", phone = "", chosen = [];
 
   let first = true;
   function render(html) {
@@ -144,7 +146,7 @@
       <img class="logo" src="../../assets/logo.png" alt="">
       <p class="eyebrow">${CODE}</p>
       <h1>Sua empresa está organizada ou <em>sobrevivendo no improviso?</em></h1>
-      <p>Uma brincadeira rápida, mas que pode revelar onde sua empresa está perdendo tempo, dinheiro e energia. Responda com sinceridade: ninguém vai ver suas respostas. 🤫</p>
+      <p>Uma brincadeira rápida, mas que pode revelar onde sua empresa está perdendo tempo, dinheiro e energia. Responda com sinceridade: aqui é zero julgamento. 🤫</p>
       <div class="chips"><span>8 perguntas</span><span>Tem a escala nova 🗓️</span><span>Resultado na hora</span></div>
       <button class="btn" id="start">Bora descobrir →</button>
       <p class="by">por Luana Carvalho · Recursos Humanos</p></div>`);
@@ -201,7 +203,9 @@
       <div class="count" id="cnt" aria-live="polite">${problem.length}/500</div>
       <label class="fl" for="nome">Seu nome <span>(opcional)</span></label>
       <input id="nome" type="text" maxlength="60" autocomplete="given-name" value="${esc(name)}" placeholder="Como posso te chamar?">
-      <p class="priv">🔒 Nada disso fica salvo no site. Só chega até mim se você enviar pelo WhatsApp no final.</p>
+      <label class="fl" for="fone">Seu WhatsApp <span>(opcional, se quiser que eu te chame)</span></label>
+      <input id="fone" type="tel" inputmode="tel" maxlength="20" autocomplete="tel" value="${esc(phone)}" placeholder="(86) 90000-0000">
+      <p class="priv">🔒 Ao ver o resultado, o que você escreveu aqui chega só para mim, a Luana, para eu entender melhor o seu desafio e, se você deixou o WhatsApp, te chamar. Não compartilho com ninguém.</p>
       <button class="btn next" id="see">Ver meu resultado →</button>`);
     card.querySelectorAll(".pchip").forEach(b => b.onclick = () => {
       const c = b.textContent;
@@ -211,9 +215,11 @@
     const ta = document.getElementById("prob"), cnt = document.getElementById("cnt");
     ta.oninput = () => { problem = ta.value; cnt.textContent = `${ta.value.length}/500`; };
     document.getElementById("nome").oninput = e => { name = e.target.value; };
+    document.getElementById("fone").oninput = e => { phone = e.target.value; };
     document.getElementById("see").onclick = () => {
-      problem = ta.value.trim(); name = document.getElementById("nome").value.trim();
+      problem = ta.value.trim(); name = document.getElementById("nome").value.trim(); phone = document.getElementById("fone").value.trim();
       track(problem ? "contou-problema" : "sem-problema", problem ? "escreveu o problema" : "não escreveu o problema");
+      sendMail();
       chosen.forEach(c => track(`tema-${c.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}`, `tema: ${c}`));
       loading();
     };
@@ -228,13 +234,46 @@
   }
 
   /* ---------- Resultado ---------- */
-  function result() {
+  function compute() {
     const counts = { bomb: 0, rec: 0, eq: 0, org: 0 };
     let ok = 0;
     order.forEach((q, k) => { if (picks[k].ok) ok++; else counts[q.area]++; });
     const max = Math.max(...Object.values(counts));
     const mainKey = ok >= 7 ? "top" : AREA_ORDER.find(a => counts[a] === max);
     const second = mainKey === "top" ? null : AREA_ORDER.filter(a => a !== mainKey && counts[a] > 0).sort((a, b) => counts[b] - counts[a])[0];
+    return { counts, ok, mainKey, second };
+  }
+
+  /* Envia por e-mail o que a pessoa contou. Só envia se ela escreveu, escolheu um tema ou deixou contato. */
+  function sendMail() {
+    if (!problem && !phone && !chosen.length) return;
+    const { counts, ok, mainKey, second } = compute();
+    const data = {
+      _subject: `Desafio #02: ${name || "alguém"} contou um problema${phone ? " (deixou WhatsApp)" : ""}`,
+      _template: "table",
+      _captcha: "false",
+      "Nome": name || "(não informou)",
+      "WhatsApp": phone || "(não informou)",
+      "Perfil": PROFILES[mainKey].title,
+      "Também tem um pé em": second ? PROFILES[second].title : "-",
+      "Temas escolhidos": chosen.length ? chosen.join(", ") : "-",
+      "O que está acontecendo": problem || "-",
+      "Sinais por área": AREA_ORDER.map(a => `${AREAS[a].name}: ${SIGNAL[counts[a]].label}`).join(" | "),
+      "Respostas organizadas": `${ok} de ${order.length}`,
+      "Respostas": order.map((q, k) => `${k + 1}. ${picks[k].t}`).join(" | "),
+      _honey: ""
+    };
+    try {
+      fetch(`https://formsubmit.co/ajax/${MAIL_TO}`, {
+        method: "POST", keepalive: true,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      }).then(r => track(r.ok ? "email-enviado" : "email-falhou", r.ok ? "e-mail enviado" : "e-mail falhou")).catch(() => track("email-falhou", "e-mail falhou"));
+    } catch (e) {}
+  }
+
+  function result() {
+    const { counts, ok, mainKey, second } = compute();
     const p = PROFILES[mainKey];
     track(`resultado-${mainKey}`, `resultado: ${p.title} (${ok}/8 organizadas)`);
 
