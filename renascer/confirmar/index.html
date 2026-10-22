@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Confirme seu horário · Espaço Renascer Spa</title>
+<meta property="og:title" content="Confirme seu horário · Espaço Renascer Spa">
+<meta property="og:description" content="Toque para confirmar ou remarcar o seu atendimento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../renascer.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">Espaço Renascer</div><div class="sub">SPA</div></div>
+  <main class="card" id="app" aria-live="polite">
+    <noscript><p>Para confirmar seu horário, ative o JavaScript ou responda pelo WhatsApp.</p></noscript>
+  </main>
+  <footer>Espaço Renascer Spa</footer>
+</div>
+<script>
+(function () {
+  const CLINICA = "5586995212345"; // WhatsApp da clínica
+  const app = document.getElementById("app");
+  const q = new URLSearchParams(location.search);
+  const nome = (q.get("n") || "").trim().slice(0, 40);
+  const serv = (q.get("s") || "").trim().slice(0, 60);
+  const dia = (q.get("d") || "").trim().slice(0, 40);
+  const hora = (q.get("h") || "").trim().slice(0, 10);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const wa = t => `https://wa.me/${CLINICA}?text=${encodeURIComponent(t)}`;
+  const icoWa = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.5-4.4A8.5 8.5 0 1 1 21 12z"/></svg>';
+  const icoOk = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const icoCal = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>';
+
+  const quando = [dia, hora && `às ${hora}`].filter(Boolean).join(", ");
+  const ref = [serv && `de ${serv.charAt(0).toLowerCase() + serv.slice(1)}`, quando && `(${quando})`].filter(Boolean).join(" ");
+  const assinatura = nome ? `\n${nome}` : "";
+  const msgSim = `Olá! Confirmo meu horário${ref ? " " + ref : ""}. Até lá!${assinatura}`;
+  const msgNao = `Olá! Preciso remarcar meu horário${ref ? " " + ref : ""}. Quais outros horários vocês têm disponíveis?${assinatura}`;
+
+  function inicio() {
+    const linhas = [
+      serv && `<li><span>Procedimento</span><b>${esc(serv)}</b></li>`,
+      dia && `<li><span>Data</span><b>${esc(dia)}</b></li>`,
+      hora && `<li><span>Horário</span><b>${esc(hora)}</b></li>`
+    ].filter(Boolean).join("");
+    app.innerHTML = `
+      <p class="eyebrow">CONFIRMAÇÃO DE HORÁRIO</p>
+      <h1>${nome ? `Olá, ${esc(nome)}!` : "Olá!"} <em>Podemos confirmar?</em></h1>
+      <p class="lead">Estamos preparando tudo para receber você.</p>
+      ${linhas ? `<ul class="details">${linhas}</ul>` : ""}
+      <a class="btn yes" id="sim" href="${wa(msgSim)}" target="_blank" rel="noopener">${icoOk} Sim, confirmo</a>
+      <a class="btn no" id="nao" href="${wa(msgNao)}" target="_blank" rel="noopener">${icoCal} Preciso remarcar</a>
+      <p class="note">Ao tocar, o WhatsApp abre com a resposta pronta. É só enviar.</p>`;
+    document.getElementById("sim").addEventListener("click", () => setTimeout(() => fim(true), 400));
+    document.getElementById("nao").addEventListener("click", () => setTimeout(() => fim(false), 400));
+  }
+
+  function fim(ok) {
+    app.innerHTML = `<div class="done ${ok ? "" : "re"}">
+      <div class="ico">${ok ? icoOk : icoCal}</div>
+      <h1>${ok ? "Obrigada!" : "Vamos remarcar"} <em>${ok ? "Até breve." : "juntas."}</em></h1>
+      <p class="lead">${ok ? "Envie a mensagem que abriu no WhatsApp para concluir a confirmação." : "Envie a mensagem que abriu no WhatsApp e responderemos com novos horários."}</p>
+      <a class="btn ${ok ? "yes" : "gold"}" href="${wa(ok ? msgSim : msgNao)}" target="_blank" rel="noopener">${icoWa} Abrir o WhatsApp novamente</a>
+      <button class="link" id="voltar">Voltar</button></div>`;
+    document.getElementById("voltar").onclick = inicio;
+  }
+
+  inicio();
+})();
+</script>
+</body>
+</html>

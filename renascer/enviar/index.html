@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Enviar confirmação · Espaço Renascer Spa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../renascer.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">Espaço Renascer</div><div class="sub">SPA · USO INTERNO</div></div>
+  <main class="card">
+    <p class="eyebrow">RECEPÇÃO</p>
+    <h1>Enviar <em>confirmação</em></h1>
+    <p class="lead">Preencha os dados do atendimento e envie o link para a cliente pelo WhatsApp.</p>
+    <form id="f" autocomplete="off" onsubmit="return false">
+      <div class="field"><label for="nome">Nome da cliente</label><input id="nome" maxlength="40" placeholder="Ex.: Maria"></div>
+      <div class="field"><label for="fone">WhatsApp da cliente <small>(com DDD)</small></label><input id="fone" type="tel" inputmode="tel" maxlength="20" placeholder="(86) 90000-0000"></div>
+      <div class="field"><label for="serv">Procedimento</label>
+        <select id="serv">
+          <option value="">Selecione</option>
+          <option>Manicure</option>
+          <option>Pedicure</option>
+          <option>Manicure e pedicure</option>
+          <option>Design de sobrancelhas</option>
+          <option>Limpeza de pele</option>
+          <option value="__outro">Outro</option>
+        </select>
+      </div>
+      <div class="field" id="outroBox" hidden><label for="outro">Qual procedimento?</label><input id="outro" maxlength="60"></div>
+      <div class="row">
+        <div class="field"><label for="data">Data</label><input id="data" type="date"></div>
+        <div class="field"><label for="hora">Horário</label><input id="hora" type="time" step="900"></div>
+      </div>
+    </form>
+    <p class="eyebrow" style="margin-top:6px">MENSAGEM</p>
+    <div class="preview empty" id="prev" aria-live="polite">Preencha os campos para ver a mensagem.</div>
+    <div class="actions">
+      <a class="btn yes" id="enviar" href="#" target="_blank" rel="noopener" aria-disabled="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.5L4 21l1.5-4.4A8.5 8.5 0 1 1 21 12z"/></svg>
+        Enviar pelo WhatsApp</a>
+      <button class="btn no" id="copiar" type="button" aria-disabled="true">Copiar mensagem</button>
+    </div>
+    <p class="toast" id="toast" aria-live="polite"></p>
+  </main>
+  <footer>Página de uso interno da recepção.</footer>
+</div>
+<script>
+(function () {
+  const BASE = new URL("../confirmar/", location.href).href;
+  const $ = id => document.getElementById(id);
+  const DIAS = ["domingo", "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira", "sexta-feira", "sábado"];
+  let msg = "";
+
+  function dataTexto(v) {
+    if (!v) return "";
+    const [y, m, d] = v.split("-").map(Number);
+    const dt = new Date(y, m - 1, d);
+    return `${DIAS[dt.getDay()]}, ${String(d).padStart(2, "0")}/${String(m).padStart(2, "0")}`;
+  }
+  function horaTexto(v) {
+    if (!v) return "";
+    const [h, mi] = v.split(":");
+    return mi === "00" ? `${Number(h)}h` : `${Number(h)}h${mi}`;
+  }
+
+  function atualizar() {
+    $("outroBox").hidden = $("serv").value !== "__outro";
+    const nome = $("nome").value.trim().split(/\s+/)[0] || "";
+    const serv = $("serv").value === "__outro" ? $("outro").value.trim() : $("serv").value;
+    const dia = dataTexto($("data").value), hora = horaTexto($("hora").value);
+    const pronto = nome && serv && dia && hora;
+    const p = new URLSearchParams({ n: nome, s: serv, d: dia, h: hora });
+    const link = `${BASE}?${p.toString()}`;
+    msg = pronto ? `Olá, ${nome}! Aqui é do Espaço Renascer Spa.\n\nSeu horário de ${serv.charAt(0).toLowerCase() + serv.slice(1)} está marcado para ${dia}, às ${hora}.\n\nPor favor, confirme sua presença pelo link:\n${link}` : "";
+    $("prev").textContent = pronto ? msg : "Preencha os campos para ver a mensagem.";
+    $("prev").classList.toggle("empty", !pronto);
+    const num = $("fone").value.replace(/\D/g, "");
+    const dest = num ? (num.startsWith("55") && num.length > 11 ? num : "55" + num) : "";
+    $("enviar").href = pronto ? `https://wa.me/${dest}?text=${encodeURIComponent(msg)}` : "#";
+    $("enviar").setAttribute("aria-disabled", String(!pronto));
+    $("copiar").setAttribute("aria-disabled", String(!pronto));
+  }
+
+  ["nome", "fone", "serv", "outro", "data", "hora"].forEach(id => $(id).addEventListener("input", atualizar));
+  $("serv").addEventListener("change", atualizar);
+  $("copiar").onclick = async () => {
+    if (!msg) return;
+    try { await navigator.clipboard.writeText(msg); $("toast").textContent = "Mensagem copiada!"; }
+    catch (e) { $("toast").textContent = "Não foi possível copiar. Selecione o texto da mensagem e copie manualmente."; }
+  };
+  atualizar();
+})();
+</script>
+</body>
+</html>
