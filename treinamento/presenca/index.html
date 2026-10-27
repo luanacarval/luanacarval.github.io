@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Confirmação de participação · Luana Carvalho</title>
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--brick:#873321;--brick-d:#6A2719;--gold:#A86B1C;--gold-d:#8A5E1A;--cream:#FAF5EC;--sand:#F1E4CC;--line:#EADDC6;--ink:#2B1D16;--body:#4A3A30;--muted:#6B5A4E}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+body{margin:0;background:var(--cream);color:var(--body);font-family:'Jost',system-ui,sans-serif;font-size:16px;line-height:1.6}
+.wrap{max-width:620px;margin:0 auto;padding:32px 16px 56px}
+header{display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:28px}
+header img{width:44px;height:44px;object-fit:contain}
+header span{font-family:'Playfair Display',serif;font-weight:700;letter-spacing:.06em;color:var(--brick);font-size:16px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.24em;color:var(--gold-d);text-transform:uppercase}
+h1{font-family:'Playfair Display',serif;font-weight:700;color:var(--brick);font-size:clamp(28px,7vw,38px);line-height:1.12;margin:8px 0 12px}
+h1 em{font-weight:500;color:var(--gold)}
+.intro{margin:0 0 6px}
+.meta{margin:0 0 24px;font-size:14px;color:var(--muted)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 20px;display:flex;flex-direction:column;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+label,.legend{font-weight:500;color:var(--ink);font-size:15px}
+.opt{font-weight:400;color:var(--muted);font-size:13px}
+input[type=text],textarea,select{font:inherit;color:var(--ink);background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-height:48px}
+textarea{min-height:110px;resize:vertical}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+legend{padding:0}
+fieldset{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.choice{position:relative}
+.choice input{position:absolute;opacity:0;width:1px;height:1px}
+.choice span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:10px;border:1.5px solid var(--line);border-radius:14px;background:var(--cream);font-weight:500;color:var(--ink);cursor:pointer}
+.choice input:checked + span{border-color:var(--brick);background:var(--brick);color:#fff}
+.choice input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+.stars{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.stars .choice span{min-height:48px;font-size:15px}
+.scale{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+button{font:inherit;font-weight:600;letter-spacing:.04em;background:var(--brick);color:#fff;border:0;border-radius:14px;min-height:52px;padding:12px 20px;cursor:pointer}
+button:hover{background:var(--brick-d)}
+button:disabled{opacity:.6;cursor:wait}
+.err{color:#A32617;font-size:14px;margin:0}
+.done{text-align:center;padding:36px 20px}
+.done h2{font-family:'Playfair Display',serif;color:var(--brick);font-size:28px;margin:0 0 8px}
+footer{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header><img src="../../assets/logo.png" alt=""><span>LUANA CARVALHO</span></header>
+
+  <div id="form-area">
+    <span class="eyebrow">Treinamento</span>
+    <h1>Confirmação de <em>participação</em></h1>
+    <p class="intro" id="intro">Sua resposta é muito importante para avaliarmos o treinamento e planejarmos os próximos. Leva menos de dois minutos.</p>
+    <p class="meta" id="meta" hidden></p>
+
+    <form id="f" class="card" novalidate>
+      <div class="field">
+        <label for="nome">Nome completo</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="setor">Setor ou função <span class="opt">(opcional)</span></label>
+        <input type="text" id="setor" name="setor">
+      </div>
+
+      <fieldset>
+        <legend class="legend">Você participou do treinamento?</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="participou" value="Sim"><span>Sim, participei</span></label>
+          <label class="choice"><input type="radio" name="participou" value="Não"><span>Não participei</span></label>
+        </div>
+      </fieldset>
+
+      <div id="bloco-sim" hidden>
+        <div class="field" style="gap:20px">
+          <fieldset>
+            <legend class="legend">De modo geral, como você avalia o treinamento?</legend>
+            <div class="stars">
+              <label class="choice"><input type="radio" name="nota" value="1"><span>1</span></label>
+              <label class="choice"><input type="radio" name="nota" value="2"><span>2</span></label>
+              <label class="choice"><input type="radio" name="nota" value="3"><span>3</span></label>
+              <label class="choice"><input type="radio" name="nota" value="4"><span>4</span></label>
+              <label class="choice"><input type="radio" name="nota" value="5"><span>5</span></label>
+            </div>
+            <div class="scale"><span>Precisa melhorar</span><span>Excelente</span></div>
+          </fieldset>
+          <div class="field">
+            <label for="opiniao">O que você achou do treinamento?</label>
+            <textarea id="opiniao" name="opiniao" placeholder="Conte o que mais ajudou, o que você vai aplicar no dia a dia e o que poderia ser melhor."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div id="bloco-nao" hidden>
+        <div class="field" style="gap:20px">
+          <div class="field">
+            <label for="motivo">Motivo da ausência</label>
+            <select id="motivo" name="motivo">
+              <option value="">Selecione</option>
+              <option>Férias ou folga</option>
+              <option>Atestado médico</option>
+              <option>Estava em horário de trabalho ou escala</option>
+              <option>Não fui informado(a) do treinamento</option>
+              <option>Questão pessoal ou familiar</option>
+              <option>Outro motivo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="detalhe">Explique brevemente <span class="opt">(opcional)</span></label>
+            <textarea id="detalhe" name="detalhe"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <p class="err" id="err" role="alert" hidden></p>
+      <button type="submit" id="btn">Enviar resposta</button>
+    </form>
+  </div>
+
+  <div id="done" class="card done" hidden>
+    <h2>Obrigada!</h2>
+    <p style="margin:0">Sua resposta foi registrada com sucesso.</p>
+  </div>
+
+  <footer>Luana Carvalho · Consultoria em Recursos Humanos</footer>
+</main>
+
+<script>
+(function(){
+  // Dados do treinamento (preencha aqui)
+  var TREINAMENTO = "";   // ex.: "Atendimento ao cliente"
+  var EMPRESA = "";       // ex.: "Nome da empresa"
+  var DATA = "";          // ex.: "20 de outubro de 2026"
+  var MAIL_TO = "luanacarvalrh@gmail.com";
+
+  var q = new URLSearchParams(location.search);
+  TREINAMENTO = q.get("t") || TREINAMENTO; EMPRESA = q.get("e") || EMPRESA; DATA = q.get("d") || DATA;
+  var meta = [TREINAMENTO, EMPRESA, DATA].filter(Boolean);
+  if (meta.length) { var m = document.getElementById("meta"); m.textContent = meta.join(" · "); m.hidden = false; }
+
+  var f = document.getElementById("f"), sim = document.getElementById("bloco-sim"), nao = document.getElementById("bloco-nao");
+  var err = document.getElementById("err"), btn = document.getElementById("btn");
+  f.addEventListener("change", function(e){
+    if (e.target.name === "participou") { sim.hidden = e.target.value !== "Sim"; nao.hidden = e.target.value !== "Não"; err.hidden = true; }
+  });
+  function val(n){ var el = f.elements[n]; return el ? (el.value || "").trim() : ""; }
+  function fail(msg, el){ err.textContent = msg; err.hidden = false; if (el) el.focus(); }
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault(); err.hidden = true;
+    var p = val("participou");
+    if (!val("nome")) return fail("Por favor, informe o seu nome completo.", f.elements.nome);
+    if (!p) return fail("Por favor, informe se você participou do treinamento.");
+    if (p === "Sim" && !val("opiniao")) return fail("Por favor, conte o que você achou do treinamento.", f.elements.opiniao);
+    if (p === "Não" && !val("motivo")) return fail("Por favor, selecione o motivo da ausência.", f.elements.motivo);
+
+    var data = {
+      _subject: "Treinamento" + (TREINAMENTO ? " " + TREINAMENTO : "") + ": " + val("nome") + (p === "Sim" ? " participou" : " não participou"),
+      _template: "table", _captcha: "false",
+      "Treinamento": TREINAMENTO || "(não informado)", "Empresa": EMPRESA || "-", "Data": DATA || "-",
+      "Nome": val("nome"), "Setor ou função": val("setor") || "-", "Participou": p
+    };
+    if (p === "Sim") { data["Nota (1 a 5)"] = val("nota") || "-"; data["O que achou"] = val("opiniao"); }
+    else { data["Motivo da ausência"] = val("motivo"); data["Detalhes"] = val("detalhe") || "-"; }
+
+    btn.disabled = true; btn.textContent = "Enviando...";
+    fetch("https://formsubmit.co/ajax/" + MAIL_TO, {
+      method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data)
+    }).then(function(r){ if (!r.ok) throw 0;
+      document.getElementById("form-area").hidden = true; document.getElementById("done").hidden = false; window.scrollTo(0,0);
+    }).catch(function(){
+      btn.disabled = false; btn.textContent = "Enviar resposta";
+      fail("Não foi possível enviar agora. Verifique a sua conexão e tente novamente.");
+    });
+  });
+})();
+</script>
+</body>
+</html>
