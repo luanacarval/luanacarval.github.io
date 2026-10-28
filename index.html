@@ -118,6 +118,11 @@
   .svc .btn{margin-top:auto;align-self:flex-start}
   .svc .spacer{flex:1;min-height:40px}
   .svc.featured{background:var(--brick);color:var(--cream)}
+  .svc-wide{margin-top:22px;flex-direction:row;align-items:center;gap:40px}
+  .svc-wide .svc-wide-text{flex:1}
+  .svc-wide .svc-wide-text > p:last-child{margin-bottom:0}
+  .svc-wide .btn{margin-top:0;align-self:center;flex-shrink:0}
+  @media (max-width:860px){.svc-wide{flex-direction:column;align-items:flex-start;gap:24px}.svc-wide .btn{align-self:flex-start}}
   .svc.featured .eyebrow{color:var(--gold-soft)}
   .svc.featured h3.title{color:var(--cream)}
   .svc.featured .checks li::before{background-color:var(--gold)}
@@ -235,6 +240,7 @@
     <ul class="menu" id="menu">
       <li><a href="#sobre">Sobre</a></li>
       <li><a href="#servicos">Serviços</a></li>
+      <li><a href="lideranca/">Liderança</a></li>
       <li><a href="#como-funciona">Como funciona</a></li>
       <li><a href="desafios/" class="nav-hl">Desafios</a></li>
       <li><a href="#duvidas">Dúvidas</a></li>
@@ -342,6 +348,14 @@
           <a class="btn btn-brick" data-goatcounter-click="site-whatsapp" data-goatcounter-title="Site: clique no WhatsApp" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Quero%20treinar%20minha%20equipe%20(Padr%C3%A3o%20de%20Atendimento)." target="_blank" rel="noopener">Quero treinar minha equipe</a>
         </article>
       </div>
+      <article class="svc svc-wide reveal">
+        <div class="svc-wide-text">
+          <p class="eyebrow">Treinamento para líderes · Novo</p>
+          <h3 class="title">Liderança na Prática</h3>
+          <p>Treinamento online e ao vivo para quem lidera pessoas: feedback, reuniões de alinhamento, conflitos, cobrança de resultados e acompanhamento de indicadores. São 5 encontros semanais, individuais ou em pacote para três líderes da mesma empresa.</p>
+        </div>
+        <a class="btn btn-brick" data-goatcounter-click="site-lideranca" data-goatcounter-title="Site: Liderança na Prática" href="lideranca/">Conhecer e me inscrever</a>
+      </article>
     </div>
   </section>
 
