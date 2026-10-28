@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liderança na Prática · Luana Carvalho</title>
+<meta name="description" content="Treinamento online e ao vivo, direto ao ponto, para quem lidera pessoas: feedback, reuniões de alinhamento, conflitos, cobrança de resultados e acompanhamento de indicadores.">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta property="og:title" content="Liderança na Prática · Treinamento online ao vivo">
+<meta property="og:description" content="Treinamento direto ao ponto para quem lidera pessoas. Com Luana Carvalho.">
+<meta property="og:image" content="https://luanacarval.github.io/assets/luana-hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<script data-goatcounter="https://luanacarval.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<style>
+:root{--cream:#FAF5EC;--sand:#F1E4CC;--brick:#873321;--brick-2:#6A2719;--gold:#CB8A2E;--gold-t:#8A5E1A;--ink:#2B1D16;--body:#4A3A30;--muted:#6B5A4E;--line:#E7D9C2;--serif:"Playfair Display",Georgia,serif;--sans:"Jost",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:var(--sans);color:var(--body);background:var(--cream);line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+section{padding:88px 0;border-top:1px solid var(--line)}
+.eyebrow{font-weight:500;font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-t);margin-bottom:16px}
+h1,h2{font-family:var(--serif);font-weight:700;color:var(--brick);line-height:1.1}
+h1 em,h2 em{font-style:italic;font-weight:500;color:var(--gold-t)}
+h1{font-size:clamp(2.5rem,7vw,4.4rem)}
+h2{font-size:clamp(1.9rem,4.4vw,2.8rem);margin-bottom:20px}
+h3{font-family:var(--serif);font-weight:700;color:var(--ink);font-size:1.25rem;line-height:1.3}
+.lead{font-size:1.2rem;font-weight:300;max-width:640px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:500;letter-spacing:.02em;border-radius:999px;padding:17px 32px;min-height:52px;background:var(--brick);color:var(--cream);transition:background .2s,transform .2s}
+.btn:hover{background:var(--brick-2);transform:translateY(-2px)}
+.btn-line{background:transparent;color:var(--brick);border:1.5px solid var(--brick)}
+.btn-line:hover{background:var(--brick);color:var(--cream)}
+header{padding:22px 0}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:40px;height:40px}
+.brand span{white-space:nowrap;font-family:var(--serif);font-weight:700;color:var(--brick);letter-spacing:.06em}
+.hero{border-top:0;padding:56px 0 96px}
+.hero .lead{margin:24px 0 36px}
+.tags{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:40px;font-size:.95rem;color:var(--muted)}
+.tags span{display:flex;align-items:center;gap:8px}
+.tags span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px}
+.card p{margin-top:8px;font-size:.98rem}
+.num{font-family:var(--serif);font-style:italic;color:var(--gold-t);font-size:1.05rem;margin-bottom:10px;display:block}
+.list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:10px}
+.list li{display:flex;gap:14px;align-items:flex-start}
+.list li::before{content:"";flex:0 0 18px;height:1.5px;background:var(--gold);margin-top:.85em}
+.split{display:grid;gap:48px;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));align-items:center}
+.photo{border-radius:20px;overflow:hidden;aspect-ratio:4/5;object-fit:cover;width:100%}
+.price{display:flex;flex-direction:column;gap:14px}
+.price .val{font-family:var(--serif);font-weight:700;color:var(--brick);font-size:2.4rem;line-height:1}
+.price .val small{font-family:var(--sans);font-weight:400;font-size:1rem;color:var(--muted)}
+.price .btn{margin-top:auto;width:100%}
+.price.featured{border:1.5px solid var(--brick)}
+.badge{align-self:flex-start;font-size:.75rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-t);border:1px solid var(--gold);border-radius:999px;padding:5px 12px}
+.note{margin-top:28px;font-size:.95rem;color:var(--muted);text-align:center}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+details summary{cursor:pointer;font-weight:500;color:var(--ink);list-style:none;display:flex;justify-content:space-between;gap:16px;min-height:44px;align-items:center}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";font-family:var(--serif);font-size:1.6rem;color:var(--brick);line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px}
+.final{text-align:center;background:var(--brick);color:var(--cream);border-top:0}
+.final h2{color:var(--cream)}
+.final h2 em{color:var(--sand)}
+.final .btn{background:var(--cream);color:var(--brick)}
+.final .btn:hover{background:var(--sand)}
+footer{padding:36px 0;font-size:.9rem;color:var(--muted);text-align:center}
+footer a{color:var(--brick)}
+@media (max-width:560px){section{padding:64px 0}.hero{padding:32px 0 64px}main .btn{width:100%}.brand span{font-size:.9rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="../"><img src="../assets/logo.png" alt=""><span>LUANA CARVALHO</span></a>
+  <a class="btn btn-line" href="#investimento" style="padding:10px 20px;min-height:44px;font-size:.92rem">Inscrições</a>
+</div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+  <p class="eyebrow">Treinamento online ao vivo</p>
+  <h1>Liderança <em>na Prática</em></h1>
+  <p class="lead">Treinamento direto ao ponto para quem lidera pessoas. Ferramentas simples para dar feedback, alinhar a equipe, lidar com conflitos e cobrar resultados sem perder o time.</p>
+  <a class="btn" href="#investimento">Quero participar</a>
+  <div class="tags"><span>4 encontros ao vivo de 2 horas</span><span>Turma de até 20 pessoas</span><span>Materiais prontos para usar</span><span>Certificado</span></div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">Para quem é</p>
+  <h2>Para quem lidera <em>pessoas</em></h2>
+  <div class="grid" style="margin-top:32px">
+    <div class="card"><h3>Empresários e donos de pequenas empresas</h3><p>Que acumulam a gestão da equipe com todas as outras frentes do negócio.</p></div>
+    <div class="card"><h3>Supervisores, coordenadores e líderes</h3><p>Que foram promovidos pela competência técnica e agora precisam conduzir pessoas.</p></div>
+    <div class="card"><h3>Profissionais de RH</h3><p>Que querem preparar e apoiar os líderes da empresa com método.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <p class="eyebrow">O que você vai aprender</p>
+  <h2>Quatro encontros, <em>um tema por vez</em></h2>
+  <div class="grid" style="margin-top:32px">
+    <div class="card"><span class="num">Encontro 1</span><h3>Feedback sem gerar resistência</h3><p>Como preparar, conduzir e encerrar uma conversa de feedback que a pessoa escuta e coloca em prática.</p></div>
+    <div class="card"><span class="num">Encontro 2</span><h3>Reuniões de alinhamento</h3><p>Pauta, tempo, papéis e combinados: reuniões curtas que terminam com decisões e responsáveis.</p></div>
+    <div class="card"><span class="num">Encontro 3</span><h3>Conflitos e comportamentos inadequados</h3><p>Como agir cedo, com firmeza e respeito, antes que o problema contamine a equipe.</p></div>
+    <div class="card"><span class="num">Encontro 4</span><h3>Cobrança e acompanhamento</h3><p>Como cobrar resultados sem perder a equipe e acompanhar tarefas, responsabilidades e indicadores.</p></div>
+  </div>
+</div></section>
+
+<section><div class="wrap split">
+  <div>
+    <p class="eyebrow">Como funciona</p>
+    <h2>Teoria na medida, <em>prática de sobra</em></h2>
+    <ul class="list">
+      <li>Encontros online e ao vivo, com espaço para trazer os casos da sua equipe.</li>
+      <li>Roteiro de feedback, modelo de pauta de reunião e planilha de acompanhamento de tarefas e indicadores, prontos para usar no dia seguinte.</li>
+      <li>Gravação de cada encontro disponível por 30 dias.</li>
+      <li>Grupo da turma no WhatsApp durante o treinamento, para tirar dúvidas.</li>
+      <li>Certificado de participação.</li>
+    </ul>
+  </div>
+  <div class="card" style="padding:32px">
+    <p class="eyebrow" style="margin-bottom:10px">Próxima turma</p>
+    <h3 style="font-size:1.6rem">Datas em breve</h3>
+    <p style="margin-top:12px">As datas e os horários são enviados primeiro para quem garantir a vaga ou entrar na lista de espera. Os encontros acontecem à noite, para não atrapalhar a rotina de trabalho.</p>
+  </div>
+</div></section>
+
+<section id="investimento"><div class="wrap">
+  <p class="eyebrow">Investimento</p>
+  <h2>Escolha a sua <em>inscrição</em></h2>
+  <div class="grid" style="margin-top:32px">
+    <div class="card price featured">
+      <span class="badge">1º lote · 5 vagas</span>
+      <h3>Individual</h3>
+      <div class="val">R$ 247 <small>por pessoa</small></div>
+      <p>Valor especial para as primeiras cinco inscrições.</p>
+      <a class="btn" href="https://wa.me/5586981251547?text=Oi%2C%20Luana!%20Quero%20garantir%20minha%20vaga%20no%20Lideran%C3%A7a%20na%20Pr%C3%A1tica%20(1%C2%BA%20lote%2C%20individual)." target="_blank" rel="noopener">Garantir minha vaga</a>
+    </div>
+    <div class="card price">
+      <span class="badge">2º lote</span>
+      <h3>Individual</h3>
+      <div class="val">R$ 297 <small>por pessoa</small></div>
+      <p>Após o encerramento do primeiro lote.</p>
+      <a class="btn btn-line" href="https://wa.me/5586981251547?text=Oi%2C%20Luana!%20Quero%20me%20inscrever%20no%20Lideran%C3%A7a%20na%20Pr%C3%A1tica%20(individual)." target="_blank" rel="noopener">Quero me inscrever</a>
+    </div>
+    <div class="card price">
+      <span class="badge">Para empresas</span>
+      <h3>Pacote com 3 vagas</h3>
+      <div class="val">R$ 747 <small>3 participantes</small></div>
+      <p>Para o empresário que quer capacitar os líderes da equipe de uma só vez.</p>
+      <a class="btn btn-line" href="https://wa.me/5586981251547?text=Oi%2C%20Luana!%20Tenho%20interesse%20no%20pacote%20empresa%20do%20Lideran%C3%A7a%20na%20Pr%C3%A1tica." target="_blank" rel="noopener">Inscrever minha equipe</a>
+    </div>
+  </div>
+  <p class="note">A inscrição é feita pelo WhatsApp, onde você recebe as formas de pagamento e a confirmação da vaga.</p>
+</div></section>
+
+<section><div class="wrap split">
+  <img class="photo" src="../assets/luana-sobre.jpg" alt="Luana Carvalho">
+  <div>
+    <p class="eyebrow">Quem conduz</p>
+    <h2>Luana <em>Carvalho</em></h2>
+    <p>Gestora de RH e tecnóloga em Gestão de Recursos Humanos, com 4 anos de atuação em RH e quase 10 anos em gestão administrativa. Já implantou um setor de RH do zero, conduziu processos seletivos de alto volume e realizou consultorias de processos e padrão de atendimento em escritório de advocacia e hospital.</p>
+    <p style="margin-top:14px">No Liderança na Prática, reúne o que funciona no dia a dia de quem lidera equipes reais, sem fórmulas prontas e sem enrolação.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap" style="max-width:760px">
+  <p class="eyebrow">Dúvidas frequentes</p>
+  <h2>Antes de se <em>inscrever</em></h2>
+  <details><summary>Preciso ter experiência como líder?</summary><p>Não. O treinamento serve tanto para quem acabou de assumir uma equipe quanto para quem já lidera e quer mais método.</p></details>
+  <details><summary>E se eu perder um encontro?</summary><p>Todos os encontros ficam gravados e disponíveis por 30 dias.</p></details>
+  <details><summary>Qual plataforma será usada?</summary><p>Os encontros acontecem por chamada de vídeo. O link é enviado no grupo da turma antes de cada encontro.</p></details>
+  <details><summary>A empresa pode pagar a inscrição?</summary><p>Sim. Para três participantes da mesma empresa, o pacote empresa sai por R$ 747.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Lidere com mais <em>segurança</em></h2>
+  <p class="lead" style="margin:16px auto 32px">As vagas são limitadas a 20 participantes por turma.</p>
+  <a class="btn" href="#investimento">Garantir minha vaga</a>
+</div></section>
+</main>
+
+<footer><div class="wrap">Luana Carvalho · Recursos Humanos · <a href="https://instagram.com/luanacarvalho_rh" target="_blank" rel="noopener">@luanacarvalho_rh</a></div></footer>
+</body>
+</html>
