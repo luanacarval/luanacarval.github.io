@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Luana Carvalho · Recursos Humanos</title>
-<meta name="description" content="Gestora de RH e consultoria para pequenas e médias empresas. Kits de RH personalizados, PDI e padrão de atendimento. Online para todas as cidades, presencial em Parnaíba e Teresina.">
+<meta name="description" content="Consultoria de RH e gestão administrativa para pequenas e médias empresas: kits de RH personalizados, PDI, padrão de atendimento, rotinas administrativas e treinamento de líderes. Online para todo o Brasil, presencial em Parnaíba e Teresina.">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta property="og:title" content="Luana Carvalho · Recursos Humanos">
-<meta property="og:description" content="Sua parceira de RH para pequenas e médias empresas.">
+<meta property="og:description" content="Sua parceira de RH e negócios para pequenas e médias empresas.">
 <meta property="og:image" content="assets/luana-hero.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -225,6 +225,30 @@
     .svc .btn{align-self:stretch}
     .brand-name{font-size:1.05rem}
   }
+
+  /* Ajuste fino: visual mais sóbrio */
+  :root{--radius:12px}
+  section{padding:112px 0}
+  h1,h2{font-weight:500;letter-spacing:-.01em}
+  .brand-name{font-weight:500}
+  .btn{border-radius:8px;padding:15px 28px;font-weight:500;letter-spacing:.01em}
+  .btn:hover{transform:none;box-shadow:none}
+  .hero-visual::before,.pain::after,.qb::after,.cta::before,.cta::after{display:none}
+  .hero-visual{padding:0 0 26px 26px}
+  .hero-visual .arch{border:0;border-radius:var(--radius);box-shadow:-26px 26px 0 var(--sand)}
+  .about-photo{box-shadow:none}
+  .pcard{border-radius:var(--radius);padding:30px 26px;background:rgba(250,245,236,.06);color:var(--cream);border:1px solid rgba(224,198,153,.35)}
+  .pcard .num{color:var(--gold-soft);font-weight:500;font-size:1.4rem;font-variant-numeric:lining-nums}
+  .pcard p{color:var(--cream)}
+  .stat{background:transparent;border:1px solid var(--line);border-radius:var(--radius)}
+  .stat strong{font-weight:500}
+  .svc{border:1px solid var(--line);background:var(--white)}
+  .services{background:var(--cream)}
+  .svc.featured{border-color:var(--brick)}
+  .svc h3.title{font-weight:500}
+  .cta-logo{border-radius:12px}
+  .hero h1{font-size:clamp(2.3rem,4.8vw,3.5rem)}
+  .svc-intro{max-width:36em;margin:18px auto 0;font-size:1.05rem}
 </style>
 <script data-goatcounter="https://luanacarval.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -254,9 +278,9 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Gestora de RH · Consultoria</p>
-        <h1>Sua parceira de RH para pequenas e <em>médias empresas</em></h1>
-        <p class="lead">Eu organizo o RH da sua empresa e ajudo a desenvolver as pessoas que fazem ela crescer, com materiais personalizados com a sua marca e acompanhamento de perto.</p>
+        <p class="eyebrow">Consultoria de RH e gestão</p>
+        <h1>Sua parceira de RH e negócios para pequenas e <em>médias empresas</em></h1>
+        <p class="lead">Organizo o RH e a rotina administrativa da sua empresa e desenvolvo as pessoas que fazem o negócio crescer. Tudo sob medida, com a sua marca e com acompanhamento de perto.</p>
         <div class="hero-ctas">
           <a class="btn btn-brick" data-goatcounter-click="site-whatsapp" data-goatcounter-title="Site: clique no WhatsApp" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os%20de%20RH." target="_blank" rel="noopener">Fale comigo no WhatsApp</a>
           <a class="link-arrow" href="#servicos">Conheça os serviços →</a>
@@ -275,12 +299,12 @@
       <p class="eyebrow">Você se identifica?</p>
       <h2>Talvez a sua empresa esteja <em>passando por isso</em></h2>
       <div class="cards4">
-        <div class="pcard reveal"><div class="num">01</div><p>Contrata no improviso e se arrepende poucos meses depois.</p></div>
-        <div class="pcard reveal"><div class="num">02</div><p>O funcionário novo chega e ninguém sabe o que ensinar para ele.</p></div>
-        <div class="pcard reveal"><div class="num">03</div><p>As regras existem só “na cabeça” do dono e ninguém cumpre.</p></div>
+        <div class="pcard reveal"><div class="num">01</div><p>Você contrata no improviso e se arrepende poucos meses depois.</p></div>
+        <div class="pcard reveal"><div class="num">02</div><p>O funcionário novo chega e ninguém sabe o que ensinar a ele.</p></div>
+        <div class="pcard reveal"><div class="num">03</div><p>As regras só existem na cabeça do dono, e ninguém as cumpre.</p></div>
         <div class="pcard reveal"><div class="num">04</div><p>O atendimento ao cliente muda conforme quem está atendendo.</p></div>
       </div>
-      <p class="closing">Isso não é falta de sorte. É falta de processo. <em>E eu te ajudo a resolver.</em></p>
+      <p class="closing">Isso não é falta de sorte, é falta de processo. <em>E é exatamente isso que eu resolvo.</em></p>
     </div>
   </section>
 
@@ -292,7 +316,7 @@
         <p class="eyebrow">Sobre mim</p>
         <h2>Prazer, eu sou a <em>Luana</em></h2>
         <p>Sou gestora de RH, tecnóloga em Gestão de Recursos Humanos, com 4 anos de atuação em RH e quase 10 anos em gestão administrativa. Já implantei um setor de RH do zero, conduzi processos seletivos de alto volume e fiz consultorias de processos e padrão de atendimento em escritório de advocacia e hospital.</p>
-        <p>Vi de perto como pequenas e médias empresas crescem sem um RH estruturado, e quanto isso custa. Meu papel é ser a sua parceira de RH: entender o seu negócio, preparar tudo com a sua cara e te ensinar a usar no dia a dia.</p>
+        <p>Vi de perto quantas pequenas e médias empresas crescem sem um RH estruturado e quanto isso custa no dia a dia. Meu papel é ser a sua parceira: entender o seu negócio, preparar tudo com a cara da sua empresa e ensinar você e a sua equipe a colocar em prática.</p>
         <div class="stats">
           <div class="stat reveal"><strong>4 anos</strong><span>de atuação em RH</span></div>
           <div class="stat reveal"><strong>quase 10</strong><span>anos em gestão administrativa</span></div>
@@ -308,22 +332,23 @@
       <div class="center">
         <p class="eyebrow">Serviços</p>
         <h2>Como eu posso <em>te ajudar</em></h2>
+        <p class="svc-intro">Escolha por onde começar. Se ainda não souber, a reunião de diagnóstico mostra qual serviço faz mais sentido para a sua empresa agora.</p>
       </div>
       <div class="svc-grid">
         <article class="svc reveal">
           <p class="eyebrow">Organize seu RH</p>
           <h3 class="title">Kits de RH personalizados</h3>
-          <p>Três kits completos, com a identidade visual da sua empresa e treinamento de uso.</p>
+          <p>Três kits prontos para usar, feitos com a identidade visual da sua empresa, e treinamento para a equipe aplicar.</p>
           <div class="sub"><h4>Recrutamento e Seleção</h4><p>Da requisição da vaga ao retorno ao candidato.</p></div>
           <div class="sub"><h4>Admissão e Integração</h4><p>Do primeiro documento ao primeiro dia do colaborador.</p></div>
-          <div class="sub"><h4>Cultura e Conduta</h4><p>Código de conduta, políticas internas e valores.</p></div>
+          <div class="sub"><h4>Cultura e Conduta</h4><p>Código de conduta, políticas internas e valores da empresa.</p></div>
           <div class="spacer"></div>
           <a class="btn btn-brick" data-goatcounter-click="site-whatsapp" data-goatcounter-title="Site: clique no WhatsApp" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Quero%20organizar%20o%20RH%20da%20minha%20empresa%20(Kits%20de%20RH)." target="_blank" rel="noopener">Quero organizar meu RH</a>
         </article>
         <article class="svc featured reveal">
           <p class="eyebrow">Desenvolva sua equipe</p>
           <h3 class="title">Desenvolve</h3>
-          <p>Um Plano de Desenvolvimento Individual (PDI) para cada colaborador, com acompanhamento de perto.</p>
+          <p>Cada colaborador sabe o que precisa melhorar e como chegar lá, com um Plano de Desenvolvimento Individual (PDI) e acompanhamento de perto.</p>
           <ul class="checks">
             <li>Conversa individual com cada colaborador</li>
             <li>Mapeamento de competências</li>
@@ -337,7 +362,7 @@
         <article class="svc reveal">
           <p class="eyebrow">Encante seu cliente</p>
           <h3 class="title">Padrão de Atendimento</h3>
-          <p>Treino a sua equipe para que todo cliente seja bem atendido, não importa quem esteja no balcão ou no WhatsApp.</p>
+          <p>Sua equipe atende todo cliente com o mesmo cuidado, não importa quem esteja no balcão ou no WhatsApp.</p>
           <ul class="checks">
             <li>Diagnóstico do atendimento atual</li>
             <li>Criação do padrão e dos protocolos</li>
@@ -379,9 +404,9 @@
       <p class="eyebrow">Como funciona</p>
       <h2>Do diagnóstico <em>à prática</em></h2>
       <div class="steps">
-        <div class="step reveal"><div class="n">1</div><h3>Reunião de diagnóstico</h3><p>Entendo a realidade da sua empresa e o que ela precisa, online ou presencial.</p></div>
+        <div class="step reveal"><div class="n">1</div><h3>Reunião de diagnóstico</h3><p>Uma conversa, online ou presencial, para entender a realidade da sua empresa e o que ela precisa.</p></div>
         <div class="step reveal"><div class="n">2</div><h3>Material personalizado</h3><p>Preparo tudo sob medida, com a logo e a identidade da sua empresa.</p></div>
-        <div class="step reveal"><div class="n">3</div><h3>Treinamento e acompanhamento</h3><p>Te ensino e treino a equipe para aplicar cada material no dia a dia.</p></div>
+        <div class="step reveal"><div class="n">3</div><h3>Treinamento e acompanhamento</h3><p>Treino você e a sua equipe para aplicar cada material no dia a dia.</p></div>
       </div>
     </div>
   </section>
@@ -396,8 +421,8 @@
       <div class="why-cards">
         <div class="wcard reveal"><h3>Feito para a sua empresa</h3><p>Nada de modelo genérico baixado da internet.</p></div>
         <div class="wcard reveal"><h3>Com a sua marca</h3><p>Todo material sai com a identidade visual da empresa.</p></div>
-        <div class="wcard reveal"><h3>Você não fica sozinho</h3><p>Eu te ensino e acompanho a aplicação.</p></div>
-        <div class="wcard reveal"><h3>Online, de onde você estiver</h3><p>Presencial em Parnaíba e em Teresina com agendamento.</p></div>
+        <div class="wcard reveal"><h3>Você não fica sozinho</h3><p>Eu ensino e acompanho a aplicação até virar rotina.</p></div>
+        <div class="wcard reveal"><h3>Online, de onde você estiver</h3><p>E presencial em Parnaíba e Teresina, com agendamento.</p></div>
       </div>
     </div>
   </section>
@@ -409,7 +434,7 @@
         <div>
           <p class="eyebrow">Diagnóstico RH · Novo</p>
           <h2>Como está a <em>jornada do colaborador</em> na sua empresa?</h2>
-          <p>12 perguntas, do recrutamento ao desligamento, e um raio-x na hora: onde sua empresa já é forte e o que merece atenção. 📊</p>
+          <p>12 perguntas, do recrutamento ao desligamento, e um raio-x na hora: onde sua empresa já é forte e o que merece atenção.</p>
         </div>
         <div class="qb-cta">
           <a class="btn btn-gold" href="desafios/diagnostico/">Fazer o diagnóstico →</a>
@@ -430,8 +455,9 @@
         <details open><summary>Preciso ter um setor de RH para contratar?</summary><p>Não. Os serviços foram pensados justamente para empresas que não têm RH estruturado.</p></details>
         <details open><summary>O material é um modelo pronto?</summary><p>Não. Tudo é adaptado à realidade da sua empresa e sai com a sua marca.</p></details>
         <details open><summary>Você atende em qual cidade?</summary><p>O atendimento é principalmente online, para empresas de qualquer cidade. Também atendo presencialmente em Parnaíba e em Teresina com agendamento.</p></details>
+        <details open><summary>Você também cuida da parte administrativa?</summary><p>Sim. O serviço de Rotinas Administrativas organiza documentos, planilhas de controle e procedimentos do dia a dia da empresa.</p></details>
         <details open><summary>Quanto tempo leva?</summary><p>Depende do serviço e do tamanho da equipe. O prazo é combinado na reunião de diagnóstico. O Desenvolve tem duração de 3 meses.</p></details>
-        <details open><summary>Como faço para começar?</summary><p>É só me chamar no WhatsApp e agendar a reunião de diagnóstico.</p></details>
+        <details open><summary>Como faço para começar?</summary><p>É só me chamar no WhatsApp para agendar a reunião de diagnóstico, sem compromisso.</p></details>
       </div>
     </div>
   </section>
@@ -441,8 +467,8 @@
 <footer class="cta" id="contato">
   <div class="wrap">
     <img class="cta-logo" src="assets/logo.png" alt="Logo Luana Carvalho Recursos Humanos" loading="lazy">
-    <h2>Vamos organizar o RH <em>da sua empresa?</em></h2>
-    <p class="sub">Me chama no WhatsApp e vamos marcar uma conversa sem compromisso.</p>
+    <h2>Vamos organizar <em>a sua empresa?</em></h2>
+    <p class="sub">Fale comigo no WhatsApp e marque uma conversa sem compromisso.</p>
     <a class="btn btn-gold" data-goatcounter-click="site-whatsapp" data-goatcounter-title="Site: clique no WhatsApp" href="https://wa.me/5586981251547?text=Ol%C3%A1%2C%20Luana!%20Gostaria%20de%20agendar%20uma%20reuni%C3%A3o%20de%20diagn%C3%B3stico." target="_blank" rel="noopener">Falar no WhatsApp</a>
     <div class="contacts">
       <div><small>WhatsApp</small><a data-goatcounter-click="site-whatsapp" data-goatcounter-title="Site: clique no WhatsApp" href="https://wa.me/5586981251547" target="_blank" rel="noopener">(86) 98125-1547</a></div>
